@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('static/o.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(21, 101, 192, 0.9);
+            padding: 10px 20px;
+        }
+        .navbar .doctor-name {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .navbar button {
+            background-color: #ffffff;
+            color: #1565c0;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar button:hover {
+            background-color: #0d47a1;
+            color: #ffffff;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+            
+            margin: 0 20px;
+            border-radius: 10px;
+        }
+        .content p {
+            color: #e00f0f;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: -50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="doctor-name">Welcome, Dr. {{ doctor_name }}</span>
+        <div>
+            <button onclick="window.location.href='/patient_details'">Patient Details</button>
+            <button onclick="window.location.href='/doctor_login'">Logout</button>
+            <button onclick="window.location.href='/attend_doctor'">Attend Doctor</button>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <p>"Wherever the art of medicine is loved, there is also a love of humanity."</p>
+    </div>
+</body>
+</html>

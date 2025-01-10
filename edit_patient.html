@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Patient</title>
+    <style>
+        /* General body styling with background image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('static/update.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Default text color */
+        }
+
+        /* Main content container */
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark translucent overlay for better readability */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            width: 400px;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        /* Heading styling */
+        h2 {
+            color: #ffcc00; /* Bright yellow for the title */
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        /* Form label styling */
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            color: #fff;
+            text-align: left;
+        }
+
+        /* Input fields */
+        input {
+            width: 100%;
+            padding: 7px;
+            margin-bottom: 15px;
+            border:crimson;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #cebebe; /* Dark input field */
+            color: #160707;
+        }
+
+        input::placeholder {
+            color: #ccc; /* Placeholder text color */
+        }
+
+        /* Button styling */
+        button {
+            background-color: #007bff; /* Primary blue color */
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Patient Details</h2>
+        <form method="POST">
+            <label for="status">Status:</label>
+            <input type="text" name="status" value="{{ patient[6] }}" required>
+            <br>
+            <label for="doctor_id">Assign Doctor:</label>
+            <select name="doctor_id" required>
+                {% for doctor in doctors %}
+                    <option value="{{ doctor[0] }}" {% if patient[7] == doctor[0] %}selected{% endif %}>
+                        {{ doctor[1] }}
+                    </option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <button type="submit">Update</button>
+        </form>
+    
+        
+
+    </div>
+</body>
+</html>

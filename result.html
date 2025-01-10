@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            background-image: url('static/result.jpg');  /* Replace with the path to your image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+
+        }
+
+        /* Container for the content */
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);  /* White background with slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: #2d3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #5c6bc0;
+            margin-bottom: 20px;
+        }
+
+        
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Prediction Text */
+        .prediction {
+            font-size: 18px;
+            color: #4caf50;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styles */
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #f44336; /* Red color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background-color: #e53935;
+        }
+
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        
+        
+
+        <!-- Display the prediction result -->
+        <p class="prediction">The predicted label is: {{ prediction }}</p>
+
+        <!-- Go back button -->
+        <a href="{{ url_for('upload_image') }}" class="back-button">upload another image</a>
+        
+        
+    </div>
+</body>
+</html>

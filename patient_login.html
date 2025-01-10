@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('static/g.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+    }
+
+    .form-container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #66a6ff;
+        text-transform: uppercase;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #66a6ff;
+        box-shadow: 0 0 5px rgba(102, 166, 255, 0.5);
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #66a6ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #5589cc;
+    }
+
+    .register-link {
+        margin-top: 15px;
+        display: block;
+        color: #66a6ff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .register-link:hover {
+        color: #5589cc;
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Patient Login</h2>
+        <form action="/patient_login" method="POST">
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <!-- Link to Doctor Register Page -->
+        <a href="/patient" class="register-link">New here? Register</a>
+    </div>
+</body>
+</html>

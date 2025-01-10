@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attend Doctor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('static/details.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(170, 160, 160, 0.7);
+        }
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #cc1515;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #1565c0;
+            color: white;
+        }
+        td {
+            background-color: #f4f4f4;
+        }
+        .actions button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #ffcc00;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        .actions button:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Attend to Doctor</h2>
+
+        <form action="/attend_doctor" method="POST">
+            
+        </form>
+
+        <h3>Doctor-Patient Assignments</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Patient Name</th>
+                    <th>Status</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for association in associations %}
+                <tr>
+                    <td>{{ association[1] }}</td>
+                    <td>{{ association[2] }}</td>
+                    <td>{{ association[3] }}</td>
+                    <td>{{ association[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

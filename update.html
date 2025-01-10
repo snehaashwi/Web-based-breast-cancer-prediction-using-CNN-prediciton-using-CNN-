@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main content wrapper */
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for better readability */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ffcc00; /* Bright yellow for header */
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .prediction {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50; /* Green color for the prediction result */
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #2196F3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0b7dda;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Result</h2>
+        <p><strong>Prediction:</strong> <span class="prediction">{{ prediction }}</span></p>
+        <a href="/patient_details"><button>Back to Patient Details</button></a>
+    </div>
+</body>
+</html>

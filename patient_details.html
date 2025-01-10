@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details</title>
+    <style>
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/l.jpg');
+            background-size: cover;
+            background-position: center;
+            height:100vh;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Main content wrapper */
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+    
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #ffcc00; /* Bright yellow for header */
+            margin-bottom: 30px;
+        }
+    
+        /* Table Styles */
+        table {
+            width: 100%;
+            
+            margin: 20px 0;
+        }
+    
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+    
+        th {
+            background-color: #2196F3;
+            color: white;
+        }
+    
+        td img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+    
+        
+        .actions button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    
+        /* Edit Button - Yellow */
+        .actions .edit-btn {
+            background-color: #b60909a8;
+            color: white;
+        }
+    
+        .actions .edit-btn:hover {
+            background-color: #b60909a8;
+        }
+    
+        /* Download Image Button - Blue */
+        .actions .download-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+    
+        .actions .download-btn:hover {
+            background-color: #2196F3;
+        }
+        .actions .check-btn{
+            background-color:rgba(18, 128, 18, 0.781);
+            color:#fff;
+        }
+        .actions .check-btn:hover{
+            background-color:rgba(18, 128, 18, 0.781);
+        }
+    
+        .actions a {
+            text-decoration: none;
+        }
+    
+        /* Table cell with image display */
+        td img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                    <th>Status</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ patient[0] }}</td>
+                    <td>{{ patient[1] }}</td>
+                    <td>{{ patient[2] }}</td>
+                    <td>{{ patient[3] }}</td>
+                    <td>{{ patient[4] }}</td>
+                    <td>{{ patient[5] }}</td>
+                    <td>{{ patient[6] }}</td>
+                    <td>
+                        {% if patient[7] %}
+                        <img src="data:image/jpeg;base64,{{ patient[7] | b64encode }}" alt="Patient Image">
+                        {% else %}
+                        No Image
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <a href="/edit_patient/{{ patient[0] }}">
+                            <button class="edit-btn">Edit</button>
+                        </a>
+                        <a href="/download_image/{{ patient[0] }}">
+                            <button class="download-btn">Download Image</button>
+                        </a>
+                        <a href="/check_image/{{ patient[0] }}">
+                            <button class="check-btn">Check</button>
+                        </a>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
